@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock, Paper, Scissors</title>
+    </head>
+    <body>
+        <script>
+            function computerPlay() {
+                let rock = "Rock";
+                let paper = "Paper";
+                let scissors = "Scissors";
+                let computerMove = Math.floor(Math.random() * 3);
+                if (computerMove == 0) {
+                    return rock;
+                } else if (computerMove == 1) {
+                    return paper;
+                } else if (computerMove == 2) {
+                    return scissors;
+                }
+            } 
+
+            function playRound(playerSelection, computerSelection) {
+                if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+                    alert(`It's a draw. ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} matches ${computerSelection}.`);
+                } else if ((playerSelection.toLowerCase() == "rock" && computerSelection == "Scissors") || 
+                           (playerSelection.toLowerCase() == "paper" && computerSelection == "Rock") ||
+                           (playerSelection.toLowerCase() == "scissors" && computerSelection == "Paper")) {
+                               alert(`You win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}.`)
+                           }
+                    else alert(`You lose! ${computerSelection} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}.`)
+                }
+               
+
+            let playerSelection = window.prompt("Enter your move: ");
+            let computerSelection = computerPlay();
+
+        </script>
+    </body>
+</html>
